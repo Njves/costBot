@@ -9,7 +9,7 @@ def get_links():
     options.add_argument('--log-level=3')
     driver = webdriver.Edge(options=options)
     driver.implicitly_wait(10)
-    ads = []
+    print('Start drom')
     base_url_phone = 'https://krasnoyarsk.drom.ru/auto/'
     hdr = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'}
@@ -23,5 +23,3 @@ def get_links():
             links.append(good.get('href'))
     return links
 
-
-get_links()

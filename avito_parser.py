@@ -6,6 +6,7 @@ from seleniumbase import SB
 
 
 def get_links():
+    print('Start avito')
     options = Options()
     options.add_argument('--headless')
     with SB(uc=True,
@@ -25,12 +26,14 @@ def get_links():
         driver.switch_to_window(window=0)
 
         item_elements = driver.find_elements(By.CSS_SELECTOR, "[data-marker='item']")
+        print(f'Нашел {len(item_elements)}')
         for item in item_elements:
             try:
-                if item.find_element(By.CSS_SELECTOR, '[class=SnippetBadge-title-oSImJ]'):
+                div = item.find_element(By.CSS_SELECTOR, '[class=SnippetBadge-title-oSImJ]')
+                if 'Цена ниже рыночной'.lower() == div.text.lower():
                     url = item.find_element(By.CSS_SELECTOR, '[itemprop=url]').get_attribute("href")
-                    ads.append(url)
+                    if 'krasnoyarsk' in url:
+                        ads.append(url)
             except:
                 pass
         return ads
-print(get_links())
