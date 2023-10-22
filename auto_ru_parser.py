@@ -5,10 +5,10 @@ import threading
 
 def get_links():
     print('Start auto.ru')
-    options = webdriver.EdgeOptions()
+    options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--log-level=3')
-    driver = webdriver.Edge(options=options)
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(10)
     base_url_phone = 'https://auto.ru/krasnoyarsk/cars/all/?sort=cr_date-desc'
     hdr = {

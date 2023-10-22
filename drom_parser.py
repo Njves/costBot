@@ -4,10 +4,10 @@ from selenium import webdriver
 
 
 def get_links():
-    options = webdriver.EdgeOptions()
+    options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--log-level=3')
-    driver = webdriver.Edge(options=options)
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(10)
     print('Start drom')
     base_url_phone = 'https://krasnoyarsk.drom.ru/auto/'
