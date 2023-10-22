@@ -28,6 +28,8 @@ class BotMessage:
         autoru = auto_ru_parser.get_links()
         avito_car = avito_parser_cars.get_links()
         self.urls = avito + drom + autoru + avito_car
+        print(self.urls)
+        print(self.check_file())
         if not self.check_file():
             self.send()
 
@@ -47,7 +49,8 @@ class BotMessage:
                 file.write(url+'\n')
         return False
 
-instance = BotMessage()
-while True:
-    instance.update()
-    time.sleep(30)
+if __name__ == '__main__':
+    instance = BotMessage()
+    while True:
+        instance.update()
+        time.sleep(30)
