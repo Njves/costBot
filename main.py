@@ -26,8 +26,7 @@ class BotMessage:
         drom = drom_parser.get_links()
         avito = avito_parser.get_links()
         autoru = auto_ru_parser.get_links()
-        avito_car = avito.get_links()
-        print(avito)
+        avito_car = avito_parser_cars.get_links()
         self.urls = avito + drom + autoru + avito_car
         if not self.check_file():
             self.send()
